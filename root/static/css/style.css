@@ -26,9 +26,41 @@ section {
     padding: 8px;
 }
 
-textarea {
+aside {
+    float: left;
+    padding: 4px;
+    margin: 4px;
+}
+    
+    aside h1 {
+        font-size: 120%;
+        margin-bottom: 3px;
+    }
+
+    aside button {
+        display: block;
+        width: 100%;
+        background: #CCC;
+        border: 2px solid #AAA;
+        margin: 4px 0;
+    }
+
+#code, #code-repeat {
     width: 100%;
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: monospace;
+}
+
+#code {
+    background: none;
+}
+
+#code-repeat {
+    position: absolute;
+    float: left;
+    z-index: -1;
+    color: white;
+    white-space: pre;
 }
