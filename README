@@ -1,16 +1,14 @@
 App-WebEval
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+This is a simple module that joins a web frontend to an App::EvalServer
+backend so you can have a website that evaluates Perl code.
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+Future developments include:
 
+- PEVANS's idea about using Linux restricted processes to make the eval
+  child safe without root privileges on Linux systems.
+- Some way of processing where any errors or warnings are in the code,
+  displaying them on the web page, and providing a diagnostic on interaction.
 
 INSTALLATION
 
@@ -21,6 +19,25 @@ To install this module, run the following commands:
 	make test
 	make install
 
+QUICK START
+
+1. Run the eval server 
+
+as user:
+    ./evalserver -U
+
+as root:
+    ./evalserver
+
+2. Use starman to run the webserver
+
+    $ starman lib/App/WebEval.pm
+
+You can steal the bodies of the functions in the module if you want to
+do the same thing in a different PSGI app. Soon the actual module will
+comprise just these functions and the PSGI app will be a script that uses
+them.
+
 SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for this module with the
@@ -30,8 +47,8 @@ perldoc command.
 
 You can also look for information at:
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-WebEval
+    The github bug tracker:
+        https://github.com/Altreus/App-WebEval/issues
 
     AnnoCPAN, Annotated CPAN documentation
         http://annocpan.org/dist/App-WebEval
@@ -47,9 +64,4 @@ LICENSE AND COPYRIGHT
 
 Copyright (C) 2011 Altreus
 
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
-
+This module is released under the MIT/X11 licence.
